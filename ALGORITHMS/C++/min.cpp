@@ -26,6 +26,23 @@ void MAX(int* tab, int size){
     cout<<"MAX: "<<maxVal<<endl;
 }
 
+void AVARAGE(int* tab, int size){
+
+    int i =0;
+    int suma = 0;
+
+    while (i<size)
+    {
+        suma+=tab[i];
+        i++;
+    }
+
+    int avarage = suma/size;
+    cout<<"AVARAGE: "<<avarage<<endl;
+    
+    
+}
+
 int main(){
 
     int tab[]={2,34,1,33333,3};
@@ -33,6 +50,7 @@ int main(){
 
     MIN(tab,size);
     MAX(tab,size);
+    AVARAGE(tab,size);
 
 
 }
