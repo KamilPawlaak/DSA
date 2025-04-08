@@ -50,6 +50,35 @@ void push_back(Node_list*& head, int value){
 
 }
 
+
+void Insert(Node_list*& head, int value, int index){
+
+    Node_list* newElement = new Node_list;
+    newElement->data=value;
+    newElement->next=nullptr;
+
+    if(index==0){
+        newElement->next=head;
+        head=newElement;
+        return;
+    }
+
+    Node_list* temp = head;
+    int counter = 0;
+
+    while (temp!=nullptr && counter<index-1)
+    {
+        temp=temp->next;
+        counter++;
+    }
+
+    newElement->next=temp->next;
+    temp->next=newElement;
+    
+
+}
+
+
 void Print(Node_list* head){
 
     while (head!=nullptr)
@@ -93,6 +122,7 @@ int main(){
     push_front(head,222);
     push_back(head,44);
     //Destroy(head);
+    Insert(head,49,2);
     
     Print(head);
     cout<<"Size list: "<<Size(head)<<endl;
