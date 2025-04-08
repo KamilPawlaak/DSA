@@ -50,6 +50,7 @@ void push_back(Node_list*& head, int value){
 
 }
 
+
 int Size(Node_list* head){
 
     int counter = 0;
@@ -63,6 +64,85 @@ int Size(Node_list* head){
     return counter;
 }
 
+bool Read(Node_list* head, int i, int& co){
+
+    if(head==nullptr){
+        cout<<"Lista jest pusta"<<endl;
+        return false;
+    }
+
+    Node_list* temp = head;
+    int counter = 0;
+
+    while (temp!=nullptr && counter<i){
+
+        temp=temp->next;
+        counter++;
+
+    }
+
+
+    if(temp!=nullptr){
+        co=temp->data;
+        return true;
+    }
+    else{
+        cout<<"you went beyond the scope"<<endl;
+        return false;
+    }
+}
+
+
+bool Remove(Node_list*& head, int i, int& co){
+
+    if(head==nullptr){
+        return false;
+    }
+
+    int size = Size(head);
+    if(i<0 || i>= size){
+        return false;
+    }
+
+    Node_list* temp = head;
+    int counter = 0;
+    Node_list* prev = nullptr;
+    
+    while (temp!=nullptr && counter<i)
+    {
+        prev = temp;
+        temp = temp->next;
+        counter++;
+    }
+    
+    if(i==0){
+        co = temp->data;
+        head = temp->next;
+        delete temp;
+        return true;
+    }
+    else{
+        co = temp->data;
+        prev->next=temp->next;
+        delete temp;
+    }
+
+    return true;
+}
+
+Node_list* Search(Node_list* head, int x){
+
+    while (head!=NULL)
+    {
+        if(head->data==x){
+            return head;
+        }
+
+        head = head->next;
+    }
+
+    return NULL;
+}
 
 void Insert(Node_list*& head, int value, int index){
 
@@ -94,12 +174,8 @@ void Insert(Node_list*& head, int value, int index){
         counter++;
     }
 
-    
-
     newElement->next=temp->next;
     temp->next=newElement;
-    
-
 }
 
 
@@ -139,6 +215,23 @@ int main(){
     
     
     cout<<"Size list: "<<Size(head)<<endl;
+
+    int value;
+    int index = 2;
+    if(Read(head,index,value)){
+        cout<<"Item in position "<<index<< " : "<<value<<endl;
+    }
+
+
+    int removeValue;
+    if(Remove(head,index,removeValue)){
+
+        cout<<"Deleted item with value "<<removeValue<<endl;
+    }
+
+    Node_list* result = Search(head,130);
+    cout<<"Found: "<<result->data<<endl;
+
     Print(head);
 
     Destroy(head);
