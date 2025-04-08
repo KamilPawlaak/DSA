@@ -50,6 +50,19 @@ void push_back(Node_list*& head, int value){
 
 }
 
+int Size(Node_list* head){
+
+    int counter = 0;
+    while (head!=nullptr)
+    {
+        head=head->next;
+        counter++;
+        
+    }
+    
+    return counter;
+}
+
 
 void Insert(Node_list*& head, int value, int index){
 
@@ -63,6 +76,15 @@ void Insert(Node_list*& head, int value, int index){
         return;
     }
 
+    int size = Size(head);
+
+    if(index>=size){
+        cout<<"you went beyond the scope"<<endl;
+        delete newElement;
+        return;
+    }
+
+
     Node_list* temp = head;
     int counter = 0;
 
@@ -71,6 +93,8 @@ void Insert(Node_list*& head, int value, int index){
         temp=temp->next;
         counter++;
     }
+
+    
 
     newElement->next=temp->next;
     temp->next=newElement;
@@ -100,18 +124,7 @@ void Destroy(Node_list*& head){
     }
 }
 
-int Size(Node_list*& head){
 
-    int counter = 0;
-    while (head!=nullptr)
-    {
-        head=head->next;
-        counter++;
-        
-    }
-    
-    return counter;
-}
 
 int main(){
 
@@ -124,7 +137,10 @@ int main(){
     //Destroy(head);
     Insert(head,49,2);
     
-    Print(head);
+    
     cout<<"Size list: "<<Size(head)<<endl;
+    Print(head);
+
+    Destroy(head);
 
 }
