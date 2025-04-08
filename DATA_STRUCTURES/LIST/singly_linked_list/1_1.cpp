@@ -217,6 +217,12 @@ void Destroy(Node_list*& head){
     }
 }
 
+Node_list* UNION(Node_list* L1, Node_list* L2){
+
+    
+
+
+}
 
 
 int main(){
