@@ -64,6 +64,23 @@ int Size(Node_list* head){
     return counter;
 }
 
+int MIN(Node_list* head){
+
+    int min = head->data;
+    Node_list* temp = head->next;
+
+    while(temp!=NULL){
+
+        if(temp->data<min){
+            min=temp->data;
+        }
+
+        temp=temp->next;
+    }
+
+    return min;
+}
+
 bool Read(Node_list* head, int i, int& co){
 
     if(head==nullptr){
@@ -231,6 +248,8 @@ int main(){
 
     Node_list* result = Search(head,130);
     cout<<"Found: "<<result->data<<endl;
+    int minVal = MIN(head);
+    cout<<"MIN: "<<minVal<<endl;
 
     Print(head);
 
