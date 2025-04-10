@@ -5,6 +5,26 @@ class Node:
         self.data = data
         self.next = None
 
+    def addElement(self, data):
+        newNode = Node(data)
+        currentNode = self
+        while currentNode.next:
+            currentNode = currentNode.next
+        currentNode.next = newNode
+
+    def PrintList(self):
+        currentNode = self
+        while currentNode:
+            print(currentNode.data, end=" -> ")
+            currentNode = currentNode.next
+        print("NULL")
+
+    def DestroyList(self):
+        currentNode = self
+        while currentNode:
+            nextNode = currentNode.next
+            del currentNode
+            currentNode = nextNode
 
 
 n1 = Node(121)

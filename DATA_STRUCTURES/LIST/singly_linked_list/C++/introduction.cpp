@@ -218,9 +218,21 @@ void Destroy(Node_list*& head){
 }
 
 Node_list* UNION(Node_list* L1, Node_list* L2){
+    Node_list* result = nullptr;
 
-    
+    while (L1!=nullptr)
+    {
+        push_back(result,L1->data);
+        L1=L1->next;
+    }
 
+    while (L2!=nullptr)
+    {
+        push_back(result,L2->data);
+        L2=L2->next;
+    }
+
+    return result;
 
 }
 
@@ -228,6 +240,8 @@ Node_list* UNION(Node_list* L1, Node_list* L2){
 int main(){
 
     Node_list* head = nullptr;
+
+    
     head = addFirstElement(30);
     push_front(head,130);
     push_front(head,50);
@@ -256,6 +270,7 @@ int main(){
     cout<<"Found: "<<result->data<<endl;
     int minVal = MIN(head);
     cout<<"MIN: "<<minVal<<endl;
+
 
     Print(head);
 
