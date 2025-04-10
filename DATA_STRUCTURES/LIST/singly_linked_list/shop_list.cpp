@@ -68,11 +68,17 @@ int Size(ShopList* head){
 
 void Print(ShopList* head){
 
+    int counter = 0;
+    cout<<"List: "<<endl;
+    cout<<"------------------"<<endl;
+    cout<<"LP | Name | Price | Quantity |"<<endl;
+    cout<<"------------------"<<endl;
     while (head!=nullptr)
     {
-        cout<<"| "<<head->name<<" | --> ";
+        counter++;
+        cout<<counter<<". "<<head->name<<" "<<head->price<<"zl "<<head->quantity<<endl;
         head=head->next;
-        
+
     }
     cout<<"NULL"<<endl;
 
@@ -169,7 +175,9 @@ int main(){
     push_back(head, "butter", 5, 1);
     push_back(head, "sugar", 1, 2);
 
-
+    
+    Print(head);
+    Destroy(head);
     return 0;
 
 }
