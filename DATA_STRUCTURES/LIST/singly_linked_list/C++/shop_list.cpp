@@ -69,13 +69,13 @@ void Print(ShopList* head){
 
     int counter = 0;
     cout<<"List: "<<endl;
-    cout<<"------------------"<<endl;
+    cout<<"------------------------------"<<endl;
     cout<<"LP | Name | Price | Quantity |"<<endl;
-    cout<<"------------------"<<endl;
+    cout<<"------------------------------"<<endl;
     while (head!=nullptr)
     {
         counter++;
-        cout<<counter<<".    "<<head->name<<"    "<<head->price<<"zl    "<<head->quantity<<endl;
+        cout<<counter<<".|    "<<head->name<<"    "<<head->price<<"zl    "<<head->quantity<<endl;
         head=head->next;
 
     }
