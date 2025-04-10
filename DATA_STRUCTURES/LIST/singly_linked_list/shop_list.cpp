@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <cstdlib>
 using namespace std;
 
 struct ShopList{
@@ -76,7 +75,7 @@ void Print(ShopList* head){
     while (head!=nullptr)
     {
         counter++;
-        cout<<counter<<". "<<head->name<<" "<<head->price<<"zl "<<head->quantity<<endl;
+        cout<<counter<<".    "<<head->name<<"    "<<head->price<<"zl    "<<head->quantity<<endl;
         head=head->next;
 
     }
@@ -168,12 +167,13 @@ int main(){
 
 
     ShopList* head = nullptr;
-    head = addFirstElement("milk", 2, 3);
-    push_back(head, "bread", 1, 2);
-    push_back(head, "eggs", 3, 1);
-    push_back(head, "cheese", 4, 1);
-    push_back(head, "butter", 5, 1);
-    push_back(head, "sugar", 1, 2);
+    head = addFirstElement("milk", 5, 3);
+    push_back(head, "bread", 8, 2);
+    push_back(head, "eggs", 12, 1);
+    push_back(head, "cheese", 5, 1);
+    push_back(head, "butter", 9, 1);
+    push_back(head, "sugar", 5, 2);
+    push_front(head, "water", 2, 1);
 
     
     Print(head);
