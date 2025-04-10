@@ -1,10 +1,4 @@
-tab = [3, 28, 1, 34, 15]
-
-print(f"before: ")
-for i in tab:
-    print(i)
-
-n = len(tab)
+#bubble_sort
 
 def bubbleSort(tab):  
     for i in range(n):
@@ -15,8 +9,19 @@ def bubbleSort(tab):
                 tab[j + 1] = temp
 
 
-bubbleSort(tab)  
+def addNumbers(tab,n):
+    for i in range(n):
+        print(f"give me the numbers")
+        number = int(input(f"number{i}: "))
+        tab.append(number)
 
-print(f"after: ")
-for i in tab:
-    print(i)
+
+n = 5
+tab = [n]
+
+
+addNumbers(tab,n)
+print(f"before: \n{tab}")
+bubbleSort(tab)  
+print(f"after: \n{tab}")
+
